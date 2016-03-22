@@ -1,0 +1,1413 @@
+  [1m[36m (31.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20160322025547)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20160322025547)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying, "post_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (15.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160322025547"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'posts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (10.6ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2015-12-02 03:00:15.313908"], ["created_at", "2016-03-22 03:00:15.327516"], ["updated_at", "2016-03-22 03:00:15.327516"]]
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2014-01-07 03:00:15.347747"], ["created_at", "2016-03-22 03:00:15.350127"], ["updated_at", "2016-03-22 03:00:15.350127"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2015-07-20 03:00:15.351717"], ["created_at", "2016-03-22 03:00:15.352220"], ["updated_at", "2016-03-22 03:00:15.352220"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2014-10-19 03:00:15.354416"], ["created_at", "2016-03-22 03:00:15.355125"], ["updated_at", "2016-03-22 03:00:15.355125"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2014-08-11 03:00:15.356590"], ["created_at", "2016-03-22 03:00:15.357166"], ["updated_at", "2016-03-22 03:00:15.357166"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2014-03-12 03:00:15.358419"], ["created_at", "2016-03-22 03:00:15.358848"], ["updated_at", "2016-03-22 03:00:15.358848"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2015-03-31 03:00:15.360524"], ["created_at", "2016-03-22 03:00:15.360968"], ["updated_at", "2016-03-22 03:00:15.360968"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Year of Walking"], ["post_date", "2013-12-16 03:00:15.362673"], ["created_at", "2016-03-22 03:00:15.363551"], ["updated_at", "2016-03-22 03:00:15.363551"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Frog Catchers Field Manual"], ["post_date", "2014-09-19 03:00:15.365343"], ["created_at", "2016-03-22 03:00:15.365797"], ["updated_at", "2016-03-22 03:00:15.365797"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2014-04-15 03:00:15.367081"], ["created_at", "2016-03-22 03:00:15.367518"], ["updated_at", "2016-03-22 03:00:15.367518"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2014-03-24 03:00:15.368832"], ["created_at", "2016-03-22 03:00:15.369437"], ["updated_at", "2016-03-22 03:00:15.369437"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-07-01 03:00:15.371183"], ["created_at", "2016-03-22 03:00:15.371847"], ["updated_at", "2016-03-22 03:00:15.371847"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2014-01-23 03:00:15.373306"], ["created_at", "2016-03-22 03:00:15.373782"], ["updated_at", "2016-03-22 03:00:15.373782"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Candy For Two"], ["post_date", "2014-01-08 03:00:15.375022"], ["created_at", "2016-03-22 03:00:15.375493"], ["updated_at", "2016-03-22 03:00:15.375493"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2016-02-25 03:00:15.376639"], ["created_at", "2016-03-22 03:00:15.377053"], ["updated_at", "2016-03-22 03:00:15.377053"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2014-05-30 03:00:15.378266"], ["created_at", "2016-03-22 03:00:15.379344"], ["updated_at", "2016-03-22 03:00:15.379344"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-01-09 03:00:15.381840"], ["created_at", "2016-03-22 03:00:15.382311"], ["updated_at", "2016-03-22 03:00:15.382311"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2014-09-20 03:00:15.383632"], ["created_at", "2016-03-22 03:00:15.384034"], ["updated_at", "2016-03-22 03:00:15.384034"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2015-03-05 03:00:15.385155"], ["created_at", "2016-03-22 03:00:15.385541"], ["updated_at", "2016-03-22 03:00:15.385541"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2014-04-16 03:00:15.387732"], ["created_at", "2016-03-22 03:00:15.388398"], ["updated_at", "2016-03-22 03:00:15.388398"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Next Day Previous Night"], ["post_date", "2015-10-08 03:00:15.389742"], ["created_at", "2016-03-22 03:00:15.390131"], ["updated_at", "2016-03-22 03:00:15.390131"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2015-04-20 03:00:15.391482"], ["created_at", "2016-03-22 03:00:15.392250"], ["updated_at", "2016-03-22 03:00:15.392250"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2014-02-03 03:00:15.393956"], ["created_at", "2016-03-22 03:00:15.395008"], ["updated_at", "2016-03-22 03:00:15.395008"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Frog Catchers Field Manual"], ["post_date", "2016-03-21 03:00:15.398019"], ["created_at", "2016-03-22 03:00:15.398820"], ["updated_at", "2016-03-22 03:00:15.398820"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2015-10-13 03:00:15.400160"], ["created_at", "2016-03-22 03:00:15.400965"], ["updated_at", "2016-03-22 03:00:15.400965"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2015-06-02 03:00:15.402507"], ["created_at", "2016-03-22 03:00:15.402981"], ["updated_at", "2016-03-22 03:00:15.402981"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Frog Catchers Field Manual"], ["post_date", "2013-11-24 03:00:15.404988"], ["created_at", "2016-03-22 03:00:15.405685"], ["updated_at", "2016-03-22 03:00:15.405685"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2014-01-03 03:00:15.407241"], ["created_at", "2016-03-22 03:00:15.407692"], ["updated_at", "2016-03-22 03:00:15.407692"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-10-24 03:00:15.408871"], ["created_at", "2016-03-22 03:00:15.409294"], ["updated_at", "2016-03-22 03:00:15.409294"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2013-12-19 03:00:15.410495"], ["created_at", "2016-03-22 03:00:15.410949"], ["updated_at", "2016-03-22 03:00:15.410949"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2014-11-20 03:00:15.412254"], ["created_at", "2016-03-22 03:00:15.413342"], ["updated_at", "2016-03-22 03:00:15.413342"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-09-09 03:00:15.415599"], ["created_at", "2016-03-22 03:00:15.416162"], ["updated_at", "2016-03-22 03:00:15.416162"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2014-02-06 03:00:15.417622"], ["created_at", "2016-03-22 03:00:15.418069"], ["updated_at", "2016-03-22 03:00:15.418069"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2013-10-05 03:00:15.419306"], ["created_at", "2016-03-22 03:00:15.419763"], ["updated_at", "2016-03-22 03:00:15.419763"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2014-07-31 03:00:15.421243"], ["created_at", "2016-03-22 03:00:15.422219"], ["updated_at", "2016-03-22 03:00:15.422219"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2014-07-12 03:00:15.424257"], ["created_at", "2016-03-22 03:00:15.424749"], ["updated_at", "2016-03-22 03:00:15.424749"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Finding a New Sun"], ["post_date", "2015-02-21 03:00:15.426048"], ["created_at", "2016-03-22 03:00:15.426638"], ["updated_at", "2016-03-22 03:00:15.426638"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2014-10-20 03:00:15.428883"], ["created_at", "2016-03-22 03:00:15.430147"], ["updated_at", "2016-03-22 03:00:15.430147"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2015-02-24 03:00:15.432125"], ["created_at", "2016-03-22 03:00:15.432644"], ["updated_at", "2016-03-22 03:00:15.432644"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2015-03-01 03:00:15.433971"], ["created_at", "2016-03-22 03:00:15.434403"], ["updated_at", "2016-03-22 03:00:15.434403"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-08-26 03:00:15.435604"], ["created_at", "2016-03-22 03:00:15.436176"], ["updated_at", "2016-03-22 03:00:15.436176"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Candy For Two"], ["post_date", "2015-04-03 03:00:15.438565"], ["created_at", "2016-03-22 03:00:15.439123"], ["updated_at", "2016-03-22 03:00:15.439123"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2015-01-05 03:00:15.440511"], ["created_at", "2016-03-22 03:00:15.440927"], ["updated_at", "2016-03-22 03:00:15.440927"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Frog Catchers Field Manual"], ["post_date", "2014-06-27 03:00:15.442118"], ["created_at", "2016-03-22 03:00:15.442537"], ["updated_at", "2016-03-22 03:00:15.442537"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2015-09-16 03:00:15.443729"], ["created_at", "2016-03-22 03:00:15.444158"], ["updated_at", "2016-03-22 03:00:15.444158"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Frog Catchers Field Manual"], ["post_date", "2015-03-13 03:00:15.445393"], ["created_at", "2016-03-22 03:00:15.446594"], ["updated_at", "2016-03-22 03:00:15.446594"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2014-12-28 03:00:15.449215"], ["created_at", "2016-03-22 03:00:15.449961"], ["updated_at", "2016-03-22 03:00:15.449961"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-01-09 03:00:15.451440"], ["created_at", "2016-03-22 03:00:15.451937"], ["updated_at", "2016-03-22 03:00:15.451937"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2015-02-26 03:00:15.453357"], ["created_at", "2016-03-22 03:00:15.454450"], ["updated_at", "2016-03-22 03:00:15.454450"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2016-01-24 03:00:15.455999"], ["created_at", "2016-03-22 03:00:15.456468"], ["updated_at", "2016-03-22 03:00:15.456468"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Next Day Previous Night"], ["post_date", "2015-06-26 03:00:15.457643"], ["created_at", "2016-03-22 03:00:15.458082"], ["updated_at", "2016-03-22 03:00:15.458082"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2015-09-05 03:00:15.459290"], ["created_at", "2016-03-22 03:00:15.459793"], ["updated_at", "2016-03-22 03:00:15.459793"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2015-07-06 03:00:15.461004"], ["created_at", "2016-03-22 03:00:15.461834"], ["updated_at", "2016-03-22 03:00:15.461834"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2013-12-01 03:00:15.465091"], ["created_at", "2016-03-22 03:00:15.465705"], ["updated_at", "2016-03-22 03:00:15.465705"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2014-01-13 03:00:15.467193"], ["created_at", "2016-03-22 03:00:15.467640"], ["updated_at", "2016-03-22 03:00:15.467640"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-11-17 03:00:15.468937"], ["created_at", "2016-03-22 03:00:15.469515"], ["updated_at", "2016-03-22 03:00:15.469515"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2014-12-16 03:00:15.471458"], ["created_at", "2016-03-22 03:00:15.472180"], ["updated_at", "2016-03-22 03:00:15.472180"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "What Lives on Pluto"], ["post_date", "2015-02-14 03:00:15.473862"], ["created_at", "2016-03-22 03:00:15.474344"], ["updated_at", "2016-03-22 03:00:15.474344"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-05-19 03:00:15.475500"], ["created_at", "2016-03-22 03:00:15.475888"], ["updated_at", "2016-03-22 03:00:15.475888"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2014-05-27 03:00:15.477088"], ["created_at", "2016-03-22 03:00:15.477528"], ["updated_at", "2016-03-22 03:00:15.477528"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2015-03-15 03:00:15.478761"], ["created_at", "2016-03-22 03:00:15.479689"], ["updated_at", "2016-03-22 03:00:15.479689"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2015-04-24 03:00:15.482021"], ["created_at", "2016-03-22 03:00:15.482582"], ["updated_at", "2016-03-22 03:00:15.482582"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2016-03-12 03:00:15.484101"], ["created_at", "2016-03-22 03:00:15.484626"], ["updated_at", "2016-03-22 03:00:15.484626"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2014-02-21 03:00:15.486000"], ["created_at", "2016-03-22 03:00:15.486499"], ["updated_at", "2016-03-22 03:00:15.486499"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2014-01-27 03:00:15.488462"], ["created_at", "2016-03-22 03:00:15.489379"], ["updated_at", "2016-03-22 03:00:15.489379"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2015-05-24 03:00:15.491125"], ["created_at", "2016-03-22 03:00:15.491621"], ["updated_at", "2016-03-22 03:00:15.491621"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2016-03-19 03:00:15.493000"], ["created_at", "2016-03-22 03:00:15.493480"], ["updated_at", "2016-03-22 03:00:15.493480"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2014-01-26 03:00:15.494765"], ["created_at", "2016-03-22 03:00:15.496430"], ["updated_at", "2016-03-22 03:00:15.496430"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2014-09-12 03:00:15.498835"], ["created_at", "2016-03-22 03:00:15.499423"], ["updated_at", "2016-03-22 03:00:15.499423"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Keyboard For Hire"], ["post_date", "2014-10-13 03:00:15.500823"], ["created_at", "2016-03-22 03:00:15.501266"], ["updated_at", "2016-03-22 03:00:15.501266"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2015-11-22 03:00:15.502567"], ["created_at", "2016-03-22 03:00:15.503186"], ["updated_at", "2016-03-22 03:00:15.503186"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-12-04 03:00:15.505829"], ["created_at", "2016-03-22 03:00:15.506400"], ["updated_at", "2016-03-22 03:00:15.506400"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2014-12-10 03:00:15.507706"], ["created_at", "2016-03-22 03:00:15.508336"], ["updated_at", "2016-03-22 03:00:15.508336"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-02-26 03:00:15.509768"], ["created_at", "2016-03-22 03:00:15.510377"], ["updated_at", "2016-03-22 03:00:15.510377"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2014-04-26 03:00:15.512692"], ["created_at", "2016-03-22 03:00:15.513843"], ["updated_at", "2016-03-22 03:00:15.513843"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-06-27 03:00:15.515730"], ["created_at", "2016-03-22 03:00:15.516263"], ["updated_at", "2016-03-22 03:00:15.516263"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2015-12-15 03:00:15.517604"], ["created_at", "2016-03-22 03:00:15.518166"], ["updated_at", "2016-03-22 03:00:15.518166"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Slicker Than Rain"], ["post_date", "2013-11-14 03:00:15.519612"], ["created_at", "2016-03-22 03:00:15.520529"], ["updated_at", "2016-03-22 03:00:15.520529"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2014-11-13 03:00:15.522705"], ["created_at", "2016-03-22 03:00:15.523392"], ["updated_at", "2016-03-22 03:00:15.523392"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Free Parking"], ["post_date", "2014-03-26 03:00:15.524771"], ["created_at", "2016-03-22 03:00:15.525207"], ["updated_at", "2016-03-22 03:00:15.525207"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-02-11 03:00:15.526392"], ["created_at", "2016-03-22 03:00:15.526815"], ["updated_at", "2016-03-22 03:00:15.526815"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Frog Catchers Field Manual"], ["post_date", "2015-05-19 03:00:15.528134"], ["created_at", "2016-03-22 03:00:15.529433"], ["updated_at", "2016-03-22 03:00:15.529433"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "What Lives on Pluto"], ["post_date", "2016-02-25 03:00:15.532115"], ["created_at", "2016-03-22 03:00:15.532755"], ["updated_at", "2016-03-22 03:00:15.532755"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2014-02-25 03:00:15.534329"], ["created_at", "2016-03-22 03:00:15.534873"], ["updated_at", "2016-03-22 03:00:15.534873"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Odd Sister"], ["post_date", "2015-05-27 03:00:15.536259"], ["created_at", "2016-03-22 03:00:15.536698"], ["updated_at", "2016-03-22 03:00:15.536698"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2015-04-26 03:00:15.538573"], ["created_at", "2016-03-22 03:00:15.539332"], ["updated_at", "2016-03-22 03:00:15.539332"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2015-12-14 03:00:15.540743"], ["created_at", "2016-03-22 03:00:15.541165"], ["updated_at", "2016-03-22 03:00:15.541165"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-01-28 03:00:15.542299"], ["created_at", "2016-03-22 03:00:15.542836"], ["updated_at", "2016-03-22 03:00:15.542836"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2014-11-20 03:00:15.544114"], ["created_at", "2016-03-22 03:00:15.544559"], ["updated_at", "2016-03-22 03:00:15.544559"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2015-03-29 03:00:15.545950"], ["created_at", "2016-03-22 03:00:15.547172"], ["updated_at", "2016-03-22 03:00:15.547172"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Odd Sister"], ["post_date", "2013-11-10 03:00:15.549260"], ["created_at", "2016-03-22 03:00:15.549852"], ["updated_at", "2016-03-22 03:00:15.549852"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2015-04-05 03:00:15.551241"], ["created_at", "2016-03-22 03:00:15.551676"], ["updated_at", "2016-03-22 03:00:15.551676"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2014-01-24 03:00:15.552780"], ["created_at", "2016-03-22 03:00:15.553202"], ["updated_at", "2016-03-22 03:00:15.553202"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2013-11-17 03:00:15.555920"], ["created_at", "2016-03-22 03:00:15.556930"], ["updated_at", "2016-03-22 03:00:15.556930"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2014-03-18 03:00:15.558648"], ["created_at", "2016-03-22 03:00:15.559446"], ["updated_at", "2016-03-22 03:00:15.559446"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Year of Walking"], ["post_date", "2016-01-07 03:00:15.561522"], ["created_at", "2016-03-22 03:00:15.562892"], ["updated_at", "2016-03-22 03:00:15.562892"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2014-12-18 03:00:15.564771"], ["created_at", "2016-03-22 03:00:15.565244"], ["updated_at", "2016-03-22 03:00:15.565244"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2014-06-04 03:00:15.566770"], ["created_at", "2016-03-22 03:00:15.567234"], ["updated_at", "2016-03-22 03:00:15.567234"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2014-09-21 03:00:15.568394"], ["created_at", "2016-03-22 03:00:15.568800"], ["updated_at", "2016-03-22 03:00:15.568800"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2015-09-28 03:00:15.570557"], ["created_at", "2016-03-22 03:00:15.571777"], ["updated_at", "2016-03-22 03:00:15.571777"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2016-02-22 03:00:15.573142"], ["created_at", "2016-03-22 03:00:15.573564"], ["updated_at", "2016-03-22 03:00:15.573564"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2013-10-06 03:00:15.574715"], ["created_at", "2016-03-22 03:00:15.575124"], ["updated_at", "2016-03-22 03:00:15.575124"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Odd Sister"], ["post_date", "2015-01-03 03:00:15.576575"], ["created_at", "2016-03-22 03:00:15.577026"], ["updated_at", "2016-03-22 03:00:15.577026"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2015-11-06 03:00:15.579791"], ["created_at", "2016-03-22 03:00:15.580645"], ["updated_at", "2016-03-22 03:00:15.580645"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-11-15 03:00:15.582311"], ["created_at", "2016-03-22 03:00:15.582806"], ["updated_at", "2016-03-22 03:00:15.582806"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-04-19 03:00:15.584440"], ["created_at", "2016-03-22 03:00:15.584938"], ["updated_at", "2016-03-22 03:00:15.584938"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2015-10-01 03:00:15.586256"], ["created_at", "2016-03-22 03:00:15.587220"], ["updated_at", "2016-03-22 03:00:15.587220"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2014-08-13 03:00:15.589021"], ["created_at", "2016-03-22 03:00:15.589744"], ["updated_at", "2016-03-22 03:00:15.589744"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2015-09-20 03:00:15.591038"], ["created_at", "2016-03-22 03:00:15.591495"], ["updated_at", "2016-03-22 03:00:15.591495"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-08-20 03:00:15.592822"], ["created_at", "2016-03-22 03:00:15.593227"], ["updated_at", "2016-03-22 03:00:15.593227"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2015-03-24 03:00:15.594503"], ["created_at", "2016-03-22 03:00:15.595762"], ["updated_at", "2016-03-22 03:00:15.595762"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2015-05-09 03:00:15.597783"], ["created_at", "2016-03-22 03:00:15.598312"], ["updated_at", "2016-03-22 03:00:15.598312"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Burning Water"], ["post_date", "2014-01-03 03:00:15.599568"], ["created_at", "2016-03-22 03:00:15.600098"], ["updated_at", "2016-03-22 03:00:15.600098"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2015-10-16 03:00:15.601510"], ["created_at", "2016-03-22 03:00:15.601950"], ["updated_at", "2016-03-22 03:00:15.601950"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "What Lives on Pluto"], ["post_date", "2015-01-02 03:00:15.603410"], ["created_at", "2016-03-22 03:00:15.604105"], ["updated_at", "2016-03-22 03:00:15.604105"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2013-10-14 03:00:15.605768"], ["created_at", "2016-03-22 03:00:15.606227"], ["updated_at", "2016-03-22 03:00:15.606227"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2014-01-18 03:00:15.607408"], ["created_at", "2016-03-22 03:00:15.607830"], ["updated_at", "2016-03-22 03:00:15.607830"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2014-07-20 03:00:15.609184"], ["created_at", "2016-03-22 03:00:15.609604"], ["updated_at", "2016-03-22 03:00:15.609604"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2015-09-19 03:00:15.610753"], ["created_at", "2016-03-22 03:00:15.611275"], ["updated_at", "2016-03-22 03:00:15.611275"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2014-03-21 03:00:15.614394"], ["created_at", "2016-03-22 03:00:15.615057"], ["updated_at", "2016-03-22 03:00:15.615057"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-07-08 03:00:15.616590"], ["created_at", "2016-03-22 03:00:15.617014"], ["updated_at", "2016-03-22 03:00:15.617014"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2015-09-12 03:00:15.618228"], ["created_at", "2016-03-22 03:00:15.618688"], ["updated_at", "2016-03-22 03:00:15.618688"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2013-12-23 03:00:15.620715"], ["created_at", "2016-03-22 03:00:15.621591"], ["updated_at", "2016-03-22 03:00:15.621591"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2015-06-04 03:00:15.623120"], ["created_at", "2016-03-22 03:00:15.623551"], ["updated_at", "2016-03-22 03:00:15.623551"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Finding a New Sun"], ["post_date", "2014-04-08 03:00:15.625372"], ["created_at", "2016-03-22 03:00:15.625805"], ["updated_at", "2016-03-22 03:00:15.625805"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2014-07-13 03:00:15.626983"], ["created_at", "2016-03-22 03:00:15.627391"], ["updated_at", "2016-03-22 03:00:15.627391"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2015-05-07 03:00:15.628566"], ["created_at", "2016-03-22 03:00:15.629606"], ["updated_at", "2016-03-22 03:00:15.629606"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2014-05-11 03:00:15.631491"], ["created_at", "2016-03-22 03:00:15.632088"], ["updated_at", "2016-03-22 03:00:15.632088"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Frog Catchers Field Manual"], ["post_date", "2015-02-07 03:00:15.633355"], ["created_at", "2016-03-22 03:00:15.633823"], ["updated_at", "2016-03-22 03:00:15.633823"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2016-02-24 03:00:15.635029"], ["created_at", "2016-03-22 03:00:15.635669"], ["updated_at", "2016-03-22 03:00:15.635669"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2013-10-16 03:00:15.637851"], ["created_at", "2016-03-22 03:00:15.638649"], ["updated_at", "2016-03-22 03:00:15.638649"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2013-10-28 03:00:15.640112"], ["created_at", "2016-03-22 03:00:15.640682"], ["updated_at", "2016-03-22 03:00:15.640682"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2015-06-17 03:00:15.641840"], ["created_at", "2016-03-22 03:00:15.642215"], ["updated_at", "2016-03-22 03:00:15.642215"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2014-05-12 03:00:15.643341"], ["created_at", "2016-03-22 03:00:15.643754"], ["updated_at", "2016-03-22 03:00:15.643754"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Finding a New Sun"], ["post_date", "2015-02-26 03:00:15.644896"], ["created_at", "2016-03-22 03:00:15.645924"], ["updated_at", "2016-03-22 03:00:15.645924"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2014-12-29 03:00:15.648259"], ["created_at", "2016-03-22 03:00:15.648761"], ["updated_at", "2016-03-22 03:00:15.648761"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-08-21 03:00:15.650072"], ["created_at", "2016-03-22 03:00:15.650490"], ["updated_at", "2016-03-22 03:00:15.650490"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2015-06-13 03:00:15.651927"], ["created_at", "2016-03-22 03:00:15.652359"], ["updated_at", "2016-03-22 03:00:15.652359"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-07-22 03:00:15.654575"], ["created_at", "2016-03-22 03:00:15.655239"], ["updated_at", "2016-03-22 03:00:15.655239"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2015-06-23 03:00:15.656838"], ["created_at", "2016-03-22 03:00:15.657280"], ["updated_at", "2016-03-22 03:00:15.657280"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2014-12-02 03:00:15.658393"], ["created_at", "2016-03-22 03:00:15.658984"], ["updated_at", "2016-03-22 03:00:15.658984"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2014-12-22 03:00:15.660200"], ["created_at", "2016-03-22 03:00:15.660654"], ["updated_at", "2016-03-22 03:00:15.660654"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2015-02-05 03:00:15.662634"], ["created_at", "2016-03-22 03:00:15.663480"], ["updated_at", "2016-03-22 03:00:15.663480"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2013-10-15 03:00:15.665221"], ["created_at", "2016-03-22 03:00:15.665674"], ["updated_at", "2016-03-22 03:00:15.665674"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2014-03-07 03:00:15.666988"], ["created_at", "2016-03-22 03:00:15.667575"], ["updated_at", "2016-03-22 03:00:15.667575"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2014-08-17 03:00:15.668872"], ["created_at", "2016-03-22 03:00:15.669356"], ["updated_at", "2016-03-22 03:00:15.669356"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2015-10-29 03:00:15.671488"], ["created_at", "2016-03-22 03:00:15.672228"], ["updated_at", "2016-03-22 03:00:15.672228"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-02-08 03:00:15.673919"], ["created_at", "2016-03-22 03:00:15.674357"], ["updated_at", "2016-03-22 03:00:15.674357"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2014-10-27 03:00:15.675463"], ["created_at", "2016-03-22 03:00:15.675919"], ["updated_at", "2016-03-22 03:00:15.675919"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2016-02-15 03:00:15.677398"], ["created_at", "2016-03-22 03:00:15.677903"], ["updated_at", "2016-03-22 03:00:15.677903"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Odd Sister"], ["post_date", "2013-11-18 03:00:15.679306"], ["created_at", "2016-03-22 03:00:15.680141"], ["updated_at", "2016-03-22 03:00:15.680141"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2014-09-16 03:00:15.682251"], ["created_at", "2016-03-22 03:00:15.682861"], ["updated_at", "2016-03-22 03:00:15.682861"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Burning Water"], ["post_date", "2013-11-06 03:00:15.684436"], ["created_at", "2016-03-22 03:00:15.684858"], ["updated_at", "2016-03-22 03:00:15.684858"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2015-02-23 03:00:15.686104"], ["created_at", "2016-03-22 03:00:15.686625"], ["updated_at", "2016-03-22 03:00:15.686625"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2014-05-28 03:00:15.688914"], ["created_at", "2016-03-22 03:00:15.689567"], ["updated_at", "2016-03-22 03:00:15.689567"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2014-11-01 03:00:15.690821"], ["created_at", "2016-03-22 03:00:15.691215"], ["updated_at", "2016-03-22 03:00:15.691215"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2014-03-26 03:00:15.692322"], ["created_at", "2016-03-22 03:00:15.692727"], ["updated_at", "2016-03-22 03:00:15.692727"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2014-02-12 03:00:15.694101"], ["created_at", "2016-03-22 03:00:15.694544"], ["updated_at", "2016-03-22 03:00:15.694544"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2015-08-13 03:00:15.695799"], ["created_at", "2016-03-22 03:00:15.696764"], ["updated_at", "2016-03-22 03:00:15.696764"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Year of Walking"], ["post_date", "2015-05-27 03:00:15.698653"], ["created_at", "2016-03-22 03:00:15.699232"], ["updated_at", "2016-03-22 03:00:15.699232"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "What Lives on Pluto"], ["post_date", "2014-01-26 03:00:15.700768"], ["created_at", "2016-03-22 03:00:15.701208"], ["updated_at", "2016-03-22 03:00:15.701208"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2014-07-02 03:00:15.702370"], ["created_at", "2016-03-22 03:00:15.702836"], ["updated_at", "2016-03-22 03:00:15.702836"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fishing With Chips"], ["post_date", "2014-04-26 03:00:15.704551"], ["created_at", "2016-03-22 03:00:15.705934"], ["updated_at", "2016-03-22 03:00:15.705934"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2014-10-31 03:00:15.707390"], ["created_at", "2016-03-22 03:00:15.707824"], ["updated_at", "2016-03-22 03:00:15.707824"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Finding a New Sun"], ["post_date", "2013-11-19 03:00:15.708976"], ["created_at", "2016-03-22 03:00:15.709408"], ["updated_at", "2016-03-22 03:00:15.709408"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Candy For Two"], ["post_date", "2015-04-22 03:00:15.710587"], ["created_at", "2016-03-22 03:00:15.711009"], ["updated_at", "2016-03-22 03:00:15.711009"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Same Way Through"], ["post_date", "2016-01-28 03:00:15.713268"], ["created_at", "2016-03-22 03:00:15.713973"], ["updated_at", "2016-03-22 03:00:15.713973"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2014-04-09 03:00:15.715489"], ["created_at", "2016-03-22 03:00:15.716147"], ["updated_at", "2016-03-22 03:00:15.716147"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Frog Catchers Field Manual"], ["post_date", "2013-10-29 03:00:15.717556"], ["created_at", "2016-03-22 03:00:15.717974"], ["updated_at", "2016-03-22 03:00:15.717974"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2014-06-25 03:00:15.719113"], ["created_at", "2016-03-22 03:00:15.719682"], ["updated_at", "2016-03-22 03:00:15.719682"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Next Day Previous Night"], ["post_date", "2015-03-02 03:00:15.722357"], ["created_at", "2016-03-22 03:00:15.722858"], ["updated_at", "2016-03-22 03:00:15.722858"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2015-03-22 03:00:15.724102"], ["created_at", "2016-03-22 03:00:15.724498"], ["updated_at", "2016-03-22 03:00:15.724498"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-03-22 03:00:15.725622"], ["created_at", "2016-03-22 03:00:15.726018"], ["updated_at", "2016-03-22 03:00:15.726018"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2015-09-23 03:00:15.727107"], ["created_at", "2016-03-22 03:00:15.727505"], ["updated_at", "2016-03-22 03:00:15.727505"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Tomato in the Window"], ["post_date", "2014-03-17 03:00:15.729296"], ["created_at", "2016-03-22 03:00:15.731108"], ["updated_at", "2016-03-22 03:00:15.731108"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Candy For Two"], ["post_date", "2014-10-03 03:00:15.733823"], ["created_at", "2016-03-22 03:00:15.734316"], ["updated_at", "2016-03-22 03:00:15.734316"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Same Way Through"], ["post_date", "2015-10-22 03:00:15.735852"], ["created_at", "2016-03-22 03:00:15.736906"], ["updated_at", "2016-03-22 03:00:15.736906"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2013-12-04 03:00:15.739385"], ["created_at", "2016-03-22 03:00:15.740012"], ["updated_at", "2016-03-22 03:00:15.740012"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2015-10-12 03:00:15.741365"], ["created_at", "2016-03-22 03:00:15.741779"], ["updated_at", "2016-03-22 03:00:15.741779"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2016-02-18 03:00:15.742888"], ["created_at", "2016-03-22 03:00:15.743276"], ["updated_at", "2016-03-22 03:00:15.743276"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-10-24 03:00:15.744600"], ["created_at", "2016-03-22 03:00:15.745781"], ["updated_at", "2016-03-22 03:00:15.745781"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2014-08-24 03:00:15.747764"], ["created_at", "2016-03-22 03:00:15.748458"], ["updated_at", "2016-03-22 03:00:15.748458"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2014-12-27 03:00:15.749793"], ["created_at", "2016-03-22 03:00:15.750186"], ["updated_at", "2016-03-22 03:00:15.750186"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2014-08-03 03:00:15.751300"], ["created_at", "2016-03-22 03:00:15.751909"], ["updated_at", "2016-03-22 03:00:15.751909"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2015-05-04 03:00:15.753278"], ["created_at", "2016-03-22 03:00:15.754034"], ["updated_at", "2016-03-22 03:00:15.754034"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2013-10-14 03:00:15.756260"], ["created_at", "2016-03-22 03:00:15.756887"], ["updated_at", "2016-03-22 03:00:15.756887"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2015-09-21 03:00:15.758093"], ["created_at", "2016-03-22 03:00:15.758528"], ["updated_at", "2016-03-22 03:00:15.758528"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2013-11-27 03:00:15.759775"], ["created_at", "2016-03-22 03:00:15.760245"], ["updated_at", "2016-03-22 03:00:15.760245"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Dozen Heros"], ["post_date", "2014-04-19 03:00:15.761784"], ["created_at", "2016-03-22 03:00:15.762711"], ["updated_at", "2016-03-22 03:00:15.762711"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Keyboard For Hire"], ["post_date", "2013-10-24 03:00:15.764602"], ["created_at", "2016-03-22 03:00:15.765111"], ["updated_at", "2016-03-22 03:00:15.765111"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Burning Water"], ["post_date", "2015-10-27 03:00:15.766378"], ["created_at", "2016-03-22 03:00:15.766825"], ["updated_at", "2016-03-22 03:00:15.766825"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2015-03-03 03:00:15.767999"], ["created_at", "2016-03-22 03:00:15.768422"], ["updated_at", "2016-03-22 03:00:15.768422"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Tomato in the Window"], ["post_date", "2013-11-22 03:00:15.769916"], ["created_at", "2016-03-22 03:00:15.770555"], ["updated_at", "2016-03-22 03:00:15.770555"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Keyboard For Hire"], ["post_date", "2015-10-06 03:00:15.771953"], ["created_at", "2016-03-22 03:00:15.772375"], ["updated_at", "2016-03-22 03:00:15.772375"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-07-09 03:00:15.773420"], ["created_at", "2016-03-22 03:00:15.773791"], ["updated_at", "2016-03-22 03:00:15.773791"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Odd Sister"], ["post_date", "2015-05-12 03:00:15.774982"], ["created_at", "2016-03-22 03:00:15.775494"], ["updated_at", "2016-03-22 03:00:15.775494"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2015-09-02 03:00:15.776701"], ["created_at", "2016-03-22 03:00:15.777140"], ["updated_at", "2016-03-22 03:00:15.777140"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Tomato in the Window"], ["post_date", "2015-11-28 03:00:15.778326"], ["created_at", "2016-03-22 03:00:15.779203"], ["updated_at", "2016-03-22 03:00:15.779203"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2015-08-23 03:00:15.781409"], ["created_at", "2016-03-22 03:00:15.782012"], ["updated_at", "2016-03-22 03:00:15.782012"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2014-10-29 03:00:15.783279"], ["created_at", "2016-03-22 03:00:15.783796"], ["updated_at", "2016-03-22 03:00:15.783796"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2014-08-06 03:00:15.785012"], ["created_at", "2016-03-22 03:00:15.785547"], ["updated_at", "2016-03-22 03:00:15.785547"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Future Discretions"], ["post_date", "2014-07-18 03:00:15.787297"], ["created_at", "2016-03-22 03:00:15.788481"], ["updated_at", "2016-03-22 03:00:15.788481"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Finding a New Sun"], ["post_date", "2014-07-26 03:00:15.790103"], ["created_at", "2016-03-22 03:00:15.790560"], ["updated_at", "2016-03-22 03:00:15.790560"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2013-12-03 03:00:15.791714"], ["created_at", "2016-03-22 03:00:15.792120"], ["updated_at", "2016-03-22 03:00:15.792120"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-02-25 03:00:15.793248"], ["created_at", "2016-03-22 03:00:15.793689"], ["updated_at", "2016-03-22 03:00:15.793689"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Odd Sister"], ["post_date", "2015-12-16 03:00:15.794879"], ["created_at", "2016-03-22 03:00:15.795637"], ["updated_at", "2016-03-22 03:00:15.795637"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2014-11-26 03:00:15.798397"], ["created_at", "2016-03-22 03:00:15.799102"], ["updated_at", "2016-03-22 03:00:15.799102"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Next Day Previous Night"], ["post_date", "2013-11-01 03:00:15.800418"], ["created_at", "2016-03-22 03:00:15.801029"], ["updated_at", "2016-03-22 03:00:15.801029"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Tomato in the Window"], ["post_date", "2014-09-23 03:00:15.802463"], ["created_at", "2016-03-22 03:00:15.802945"], ["updated_at", "2016-03-22 03:00:15.802945"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Free Parking"], ["post_date", "2015-07-16 03:00:15.804497"], ["created_at", "2016-03-22 03:00:15.805175"], ["updated_at", "2016-03-22 03:00:15.805175"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2014-05-15 03:00:15.806831"], ["created_at", "2016-03-22 03:00:15.807256"], ["updated_at", "2016-03-22 03:00:15.807256"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2015-11-20 03:00:15.808369"], ["created_at", "2016-03-22 03:00:15.808834"], ["updated_at", "2016-03-22 03:00:15.808834"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Covered and Warm"], ["post_date", "2014-05-27 03:00:15.810364"], ["created_at", "2016-03-22 03:00:15.810810"], ["updated_at", "2016-03-22 03:00:15.810810"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2016-02-19 03:00:15.812057"], ["created_at", "2016-03-22 03:00:15.813166"], ["updated_at", "2016-03-22 03:00:15.813166"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2014-09-19 03:00:15.814986"], ["created_at", "2016-03-22 03:00:15.815500"], ["updated_at", "2016-03-22 03:00:15.815500"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2013-12-14 03:00:15.816712"], ["created_at", "2016-03-22 03:00:15.817263"], ["updated_at", "2016-03-22 03:00:15.817263"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2015-10-17 03:00:15.818521"], ["created_at", "2016-03-22 03:00:15.818941"], ["updated_at", "2016-03-22 03:00:15.818941"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2015-05-31 03:00:15.820122"], ["created_at", "2016-03-22 03:00:15.820558"], ["updated_at", "2016-03-22 03:00:15.820558"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2014-08-10 03:00:15.822643"], ["created_at", "2016-03-22 03:00:15.823163"], ["updated_at", "2016-03-22 03:00:15.823163"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2015-09-24 03:00:15.824411"], ["created_at", "2016-03-22 03:00:15.824828"], ["updated_at", "2016-03-22 03:00:15.824828"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2015-01-31 03:00:15.825947"], ["created_at", "2016-03-22 03:00:15.826351"], ["updated_at", "2016-03-22 03:00:15.826351"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2015-05-06 03:00:15.827487"], ["created_at", "2016-03-22 03:00:15.827920"], ["updated_at", "2016-03-22 03:00:15.827920"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Future Discretions"], ["post_date", "2014-09-28 03:00:15.830267"], ["created_at", "2016-03-22 03:00:15.831017"], ["updated_at", "2016-03-22 03:00:15.831017"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2014-10-25 03:00:15.832465"], ["created_at", "2016-03-22 03:00:15.833141"], ["updated_at", "2016-03-22 03:00:15.833141"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Tomato in the Window"], ["post_date", "2015-09-05 03:00:15.840535"], ["created_at", "2016-03-22 03:00:15.840960"], ["updated_at", "2016-03-22 03:00:15.840960"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2014-03-08 03:00:15.842136"], ["created_at", "2016-03-22 03:00:15.842725"], ["updated_at", "2016-03-22 03:00:15.842725"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-11-17 03:00:15.844048"], ["created_at", "2016-03-22 03:00:15.844525"], ["updated_at", "2016-03-22 03:00:15.844525"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "No Lonely Stars"], ["post_date", "2015-09-04 03:00:15.847371"], ["created_at", "2016-03-22 03:00:15.848092"], ["updated_at", "2016-03-22 03:00:15.848092"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-12-19 03:00:15.849549"], ["created_at", "2016-03-22 03:00:15.850334"], ["updated_at", "2016-03-22 03:00:15.850334"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2015-08-25 03:00:15.851882"], ["created_at", "2016-03-22 03:00:15.852422"], ["updated_at", "2016-03-22 03:00:15.852422"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Same Way Through"], ["post_date", "2014-10-19 03:00:15.855076"], ["created_at", "2016-03-22 03:00:15.856081"], ["updated_at", "2016-03-22 03:00:15.856081"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2015-04-13 03:00:15.858015"], ["created_at", "2016-03-22 03:00:15.858793"], ["updated_at", "2016-03-22 03:00:15.858793"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-09-01 03:00:15.860267"], ["created_at", "2016-03-22 03:00:15.860722"], ["updated_at", "2016-03-22 03:00:15.860722"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-03-24 03:00:15.862151"], ["created_at", "2016-03-22 03:00:15.863251"], ["updated_at", "2016-03-22 03:00:15.863251"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-04-15 03:00:15.865208"], ["created_at", "2016-03-22 03:00:15.865827"], ["updated_at", "2016-03-22 03:00:15.865827"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2015-04-25 03:00:15.867062"], ["created_at", "2016-03-22 03:00:15.867507"], ["updated_at", "2016-03-22 03:00:15.867507"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2015-11-14 03:00:15.868903"], ["created_at", "2016-03-22 03:00:15.869302"], ["updated_at", "2016-03-22 03:00:15.869302"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2014-07-09 03:00:15.871203"], ["created_at", "2016-03-22 03:00:15.871972"], ["updated_at", "2016-03-22 03:00:15.871972"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Next Day Previous Night"], ["post_date", "2013-11-23 03:00:15.873323"], ["created_at", "2016-03-22 03:00:15.873728"], ["updated_at", "2016-03-22 03:00:15.873728"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2015-10-23 03:00:15.874986"], ["created_at", "2016-03-22 03:00:15.875374"], ["updated_at", "2016-03-22 03:00:15.875374"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2013-11-30 03:00:15.876572"], ["created_at", "2016-03-22 03:00:15.877083"], ["updated_at", "2016-03-22 03:00:15.877083"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Finding a New Sun"], ["post_date", "2014-12-28 03:00:15.878312"], ["created_at", "2016-03-22 03:00:15.879646"], ["updated_at", "2016-03-22 03:00:15.879646"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2013-11-29 03:00:15.881839"], ["created_at", "2016-03-22 03:00:15.882276"], ["updated_at", "2016-03-22 03:00:15.882276"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Future Discretions"], ["post_date", "2016-02-28 03:00:15.883776"], ["created_at", "2016-03-22 03:00:15.884343"], ["updated_at", "2016-03-22 03:00:15.884343"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "What Lives on Pluto"], ["post_date", "2015-12-23 03:00:15.885646"], ["created_at", "2016-03-22 03:00:15.886189"], ["updated_at", "2016-03-22 03:00:15.886189"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Candy For Two"], ["post_date", "2015-07-06 03:00:15.889344"], ["created_at", "2016-03-22 03:00:15.890193"], ["updated_at", "2016-03-22 03:00:15.890193"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2015-09-12 03:00:15.891844"], ["created_at", "2016-03-22 03:00:15.892443"], ["updated_at", "2016-03-22 03:00:15.892443"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-08-08 03:00:15.894047"], ["created_at", "2016-03-22 03:00:15.894554"], ["updated_at", "2016-03-22 03:00:15.894554"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2015-02-10 03:00:15.896266"], ["created_at", "2016-03-22 03:00:15.897053"], ["updated_at", "2016-03-22 03:00:15.897053"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Future Discretions"], ["post_date", "2013-12-28 03:00:15.899034"], ["created_at", "2016-03-22 03:00:15.899638"], ["updated_at", "2016-03-22 03:00:15.899638"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2015-03-18 03:00:15.901031"], ["created_at", "2016-03-22 03:00:15.901456"], ["updated_at", "2016-03-22 03:00:15.901456"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2013-11-22 03:00:15.903042"], ["created_at", "2016-03-22 03:00:15.903634"], ["updated_at", "2016-03-22 03:00:15.903634"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2015-01-31 03:00:15.906435"], ["created_at", "2016-03-22 03:00:15.907384"], ["updated_at", "2016-03-22 03:00:15.907384"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Burning Water"], ["post_date", "2016-01-20 03:00:15.908722"], ["created_at", "2016-03-22 03:00:15.909143"], ["updated_at", "2016-03-22 03:00:15.909143"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Year of Walking"], ["post_date", "2015-10-24 03:00:15.910547"], ["created_at", "2016-03-22 03:00:15.910969"], ["updated_at", "2016-03-22 03:00:15.910969"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2015-11-09 03:00:15.912339"], ["created_at", "2016-03-22 03:00:15.913476"], ["updated_at", "2016-03-22 03:00:15.913476"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Slicker Than Rain"], ["post_date", "2015-05-07 03:00:15.916106"], ["created_at", "2016-03-22 03:00:15.916589"], ["updated_at", "2016-03-22 03:00:15.916589"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "What Lives on Pluto"], ["post_date", "2016-01-10 03:00:15.918170"], ["created_at", "2016-03-22 03:00:15.918751"], ["updated_at", "2016-03-22 03:00:15.918751"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Burning Water"], ["post_date", "2014-08-09 03:00:15.920344"], ["created_at", "2016-03-22 03:00:15.921591"], ["updated_at", "2016-03-22 03:00:15.921591"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Slicker Than Rain"], ["post_date", "2015-08-28 03:00:15.923315"], ["created_at", "2016-03-22 03:00:15.923819"], ["updated_at", "2016-03-22 03:00:15.923819"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Next Day Previous Night"], ["post_date", "2015-11-05 03:00:15.925161"], ["created_at", "2016-03-22 03:00:15.925749"], ["updated_at", "2016-03-22 03:00:15.925749"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Walking and Running"], ["post_date", "2015-08-03 03:00:15.927113"], ["created_at", "2016-03-22 03:00:15.927787"], ["updated_at", "2016-03-22 03:00:15.927787"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-12-19 03:00:15.932055"], ["created_at", "2016-03-22 03:00:15.932890"], ["updated_at", "2016-03-22 03:00:15.932890"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2014-11-21 03:00:15.934257"], ["created_at", "2016-03-22 03:00:15.934962"], ["updated_at", "2016-03-22 03:00:15.934962"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "What Lives on Pluto"], ["post_date", "2016-03-09 03:00:15.937661"], ["created_at", "2016-03-22 03:00:15.938824"], ["updated_at", "2016-03-22 03:00:15.938824"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-03-20 03:00:15.940584"], ["created_at", "2016-03-22 03:00:15.941025"], ["updated_at", "2016-03-22 03:00:15.941025"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Falling Flags"], ["post_date", "2016-03-06 03:00:15.942288"], ["created_at", "2016-03-22 03:00:15.942794"], ["updated_at", "2016-03-22 03:00:15.942794"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Slicker Than Rain"], ["post_date", "2015-12-13 03:00:15.944099"], ["created_at", "2016-03-22 03:00:15.944585"], ["updated_at", "2016-03-22 03:00:15.944585"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Walking and Running"], ["post_date", "2014-04-08 03:00:15.947632"], ["created_at", "2016-03-22 03:00:15.948352"], ["updated_at", "2016-03-22 03:00:15.948352"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2015-07-19 03:00:15.950180"], ["created_at", "2016-03-22 03:00:15.950843"], ["updated_at", "2016-03-22 03:00:15.950843"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Free Parking"], ["post_date", "2015-09-11 03:00:15.952240"], ["created_at", "2016-03-22 03:00:15.952752"], ["updated_at", "2016-03-22 03:00:15.952752"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2014-09-18 03:00:15.954674"], ["created_at", "2016-03-22 03:00:15.955249"], ["updated_at", "2016-03-22 03:00:15.955249"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-10-23 03:00:15.956789"], ["created_at", "2016-03-22 03:00:15.957329"], ["updated_at", "2016-03-22 03:00:15.957329"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Year of Walking"], ["post_date", "2015-07-03 03:00:15.958422"], ["created_at", "2016-03-22 03:00:15.958826"], ["updated_at", "2016-03-22 03:00:15.958826"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2014-09-08 03:00:15.959967"], ["created_at", "2016-03-22 03:00:15.960457"], ["updated_at", "2016-03-22 03:00:15.960457"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Free Parking"], ["post_date", "2014-05-07 03:00:15.962879"], ["created_at", "2016-03-22 03:00:15.963956"], ["updated_at", "2016-03-22 03:00:15.963956"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Frog Catchers Field Manual"], ["post_date", "2013-11-18 03:00:15.965999"], ["created_at", "2016-03-22 03:00:15.966591"], ["updated_at", "2016-03-22 03:00:15.966591"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Ready, Set, Die"], ["post_date", "2015-05-02 03:00:15.967887"], ["created_at", "2016-03-22 03:00:15.968307"], ["updated_at", "2016-03-22 03:00:15.968307"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Tomato in the Window"], ["post_date", "2015-04-27 03:00:15.969560"], ["created_at", "2016-03-22 03:00:15.970126"], ["updated_at", "2016-03-22 03:00:15.970126"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Falling Flags"], ["post_date", "2015-05-14 03:00:15.972481"], ["created_at", "2016-03-22 03:00:15.973050"], ["updated_at", "2016-03-22 03:00:15.973050"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Stop Asking, Just Do"], ["post_date", "2015-07-11 03:00:15.974309"], ["created_at", "2016-03-22 03:00:15.974751"], ["updated_at", "2016-03-22 03:00:15.974751"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2013-11-09 03:00:15.975840"], ["created_at", "2016-03-22 03:00:15.976246"], ["updated_at", "2016-03-22 03:00:15.976246"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2015-10-08 03:00:15.977296"], ["created_at", "2016-03-22 03:00:15.977681"], ["updated_at", "2016-03-22 03:00:15.977681"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "A Dozen Heros"], ["post_date", "2015-12-30 03:00:15.978761"], ["created_at", "2016-03-22 03:00:15.979478"], ["updated_at", "2016-03-22 03:00:15.979478"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Burning Water"], ["post_date", "2016-01-01 03:00:15.981988"], ["created_at", "2016-03-22 03:00:15.982564"], ["updated_at", "2016-03-22 03:00:15.982564"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Same Way Through"], ["post_date", "2015-04-17 03:00:15.984142"], ["created_at", "2016-03-22 03:00:15.984669"], ["updated_at", "2016-03-22 03:00:15.984669"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2015-05-25 03:00:15.986217"], ["created_at", "2016-03-22 03:00:15.986717"], ["updated_at", "2016-03-22 03:00:15.986717"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Stop Asking, Just Do"], ["post_date", "2015-02-12 03:00:15.988532"], ["created_at", "2016-03-22 03:00:15.989234"], ["updated_at", "2016-03-22 03:00:15.989234"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Keyboard For Hire"], ["post_date", "2016-03-14 03:00:15.990788"], ["created_at", "2016-03-22 03:00:15.991237"], ["updated_at", "2016-03-22 03:00:15.991237"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Keyboard For Hire"], ["post_date", "2015-09-01 03:00:15.992642"], ["created_at", "2016-03-22 03:00:15.993120"], ["updated_at", "2016-03-22 03:00:15.993120"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Candy For Two"], ["post_date", "2015-06-13 03:00:15.994821"], ["created_at", "2016-03-22 03:00:15.995811"], ["updated_at", "2016-03-22 03:00:15.995811"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2015-10-27 03:00:15.997359"], ["created_at", "2016-03-22 03:00:15.997847"], ["updated_at", "2016-03-22 03:00:15.997847"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "No Lonely Stars"], ["post_date", "2013-11-25 03:00:15.999335"], ["created_at", "2016-03-22 03:00:15.999783"], ["updated_at", "2016-03-22 03:00:15.999783"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-11-12 03:00:16.001176"], ["created_at", "2016-03-22 03:00:16.001667"], ["updated_at", "2016-03-22 03:00:16.001667"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Candy For Two"], ["post_date", "2014-09-14 03:00:16.003627"], ["created_at", "2016-03-22 03:00:16.004075"], ["updated_at", "2016-03-22 03:00:16.004075"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Covered and Warm"], ["post_date", "2015-07-19 03:00:16.005375"], ["created_at", "2016-03-22 03:00:16.005928"], ["updated_at", "2016-03-22 03:00:16.005928"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Ready, Set, Die"], ["post_date", "2013-12-14 03:00:16.007510"], ["created_at", "2016-03-22 03:00:16.008028"], ["updated_at", "2016-03-22 03:00:16.008028"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Fishing With Chips"], ["post_date", "2015-10-21 03:00:16.009330"], ["created_at", "2016-03-22 03:00:16.009838"], ["updated_at", "2016-03-22 03:00:16.009838"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Zookeeper and Her Tiger"], ["post_date", "2014-06-27 03:00:16.011289"], ["created_at", "2016-03-22 03:00:16.012226"], ["updated_at", "2016-03-22 03:00:16.012226"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "post_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "The Odd Sister"], ["post_date", "2014-08-17 03:00:16.014806"], ["created_at", "2016-03-22 03:00:16.015386"], ["updated_at", "2016-03-22 03:00:16.015386"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/api/posts" for ::1 at 2016-03-21 22:08:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::PostsController#index as */*
+  [1m[35mPost Load (1.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered api/posts/index.json.jbuilder (15.9ms)
+Completed 200 OK in 48ms (Views: 35.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-03-21 22:11:25 -0500
+Processing by Api::PostsController#index as */*
+  [1m[36mPost Load (2.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered api/posts/index.json.jbuilder (321.8ms)
+Completed 200 OK in 345ms (Views: 342.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-03-21 22:29:18 -0500
+
+SyntaxError (/Users/Benny/Desktop/theironyard/rails/secure-api/app/controllers/api/posts_controller.rb:9: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/api/posts_controller.rb:9: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.8ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (38.4ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (88.2ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-03-21 22:29:33 -0500
+Processing by Api::PostsController#index as */*
+  [1m[35mPost Load (1.4ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered api/posts/index.json.jbuilder (59.9ms)
+Completed 200 OK in 81ms (Views: 74.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/posts/76" for ::1 at 2016-03-21 22:29:49 -0500
+Processing by Api::PostsController#show as */*
+  Parameters: {"id"=>"76"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 76]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.8ms)
+
+ActionView::MissingTemplate (Missing template api/posts/show, application/show with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :web_console_v2], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Benny/Desktop/theironyard/rails/secure-api/app/views"
+):
+  actionview (4.2.5.2) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.5.2) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.5.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.5.2) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.5.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.5.2) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.5.2) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.5.2) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.5.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.5.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.5.2) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.5.2) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.5.2) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.5.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.5.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Benny/.rubies/ruby-2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.5.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.5.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.5.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.5.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.5.2) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.5.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.5.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5.2) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5.2) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5.2) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5.2) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5.2) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.5.2) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.5.2) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5.2) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5.2) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5.2) lib/action_dispatch/routing/route_set.rb:815:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5.2) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.2) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.2) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Benny/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Benny/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Benny/.rubies/ruby-2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/actionpack-4.2.5.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (40.1ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Benny/.gem/ruby/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (74.2ms)
+
+
+Started GET "/api/posts/76" for ::1 at 2016-03-21 22:31:28 -0500
+Processing by Api::PostsController#show as */*
+  Parameters: {"id"=>"76"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 76]]
+  Rendered api/posts/show.json.jbuilder (0.7ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts/76" for ::1 at 2016-03-21 22:34:55 -0500
+Processing by Api::PostsController#show as */*
+  Parameters: {"id"=>"76"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 76]]
+  Rendered api/posts/show.json.jbuilder (1.3ms)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/posts" for ::1 at 2016-03-21 22:36:10 -0500
+Processing by Api::PostsController#index as */*
+  [1m[35mPost Load (1.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered api/posts/_post.json.jbuilder (0.6ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.6ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.6ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.5ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (4.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.5ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.2ms)
+  Rendered api/posts/_post.json.jbuilder (0.3ms)
+  Rendered api/posts/index.json.jbuilder (1066.0ms)
+Completed 200 OK in 1086ms (Views: 1084.4ms | ActiveRecord: 1.2ms)
