@@ -2694,3 +2694,12 @@ Processing by Api::PostsController#index as */*
   Rendered api/posts/_post.json.jbuilder (0.2ms)
   Rendered api/posts/index.json.jbuilder (1004.7ms)
 Completed 200 OK in 1041ms (Views: 1032.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/me" for ::1 at 2016-03-22 00:05:07 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::UsersController#me as */*
+  [1m[35mDoorkeeper::AccessToken Load (0.5ms)[0m  SELECT  "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT 1  [["token", "182eb70b3a7e49ed65bffd9141d4d115c88f88ef9af64731b080554b2dbac5e9"]]
+  [1m[36mUser Load (6.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered api/registrations/user.json.jbuilder (4.2ms)
+Completed 200 OK in 82ms (Views: 33.4ms | ActiveRecord: 10.9ms)
