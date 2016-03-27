@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   namespace :api do
     get "posts" => 'posts#index'
     get "posts/:id" => 'posts#show'
-    post "orders" => 'orders#create'
-    patch "orders/:id" => 'orders#update'
-    delete "orders/:id" => 'orders#delete'
-    post "registrations" => 'registrations#create'
+    post "posts" => 'posts#create'
+    patch "posts/:id" => 'posts#update'
+    delete "posts/:id" => 'posts#delete'
+    post "users" => 'registrations#create'
 
     get "me" => 'users#me'
     delete "me" => 'users#delete'
